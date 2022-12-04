@@ -1,10 +1,10 @@
 class Song:
-  def __init__(title, artist, year):
+  def __init__(self, title, artist, year):
     self.title = title
     self.artist = artist
     self.year = year
   
-  def update(title, artist, year):
+  def update(self, title, artist, year):
     self.title = title
     self.artist = artist
     self.year = year
