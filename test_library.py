@@ -11,6 +11,20 @@ class TestStringMethods(unittest.TestCase):
     self.assertEqual(len(self.library.series), 0)
     self.assertEqual(len(self.library.songs), 0)
 
+  def test_add_remove(self):
+    movie = Movie('No Country For Old Men', 'Ethan Coen', 2007)
+    self.library.addMovie(movie)
+    serie = Serie('Breaking Bad', 'Vince Gilligan', 2008)
+    self.library.addSerie(serie)
+    song = Song('Lose Yourself', 'Eminem', 2002)
+    self.library.addSong(song)
+    self.library.removeSong('Lose Yourself')
+    movie2 = Movie('The Departed', 'Martin Scorsese', 2006)
+    self.library.addMovie(movie2)
+    self.assertEqual(self.library.movies, [movie, movie2])
+    self.assertEqual(self.library.series, [serie])
+    self.assertEqual(self.library.songs, [])
+
   # ----------------- MOVIE --------------------
 
   def test_add_movie(self):
