@@ -1,56 +1,60 @@
+from Movie import *
+from Serie import *
+from Song import *
+
 class Library:
-  def __init__(movies=[], series=[], songs=[]):
+  def __init__(self, movies=[], series=[], songs=[]):
     self.movies = movies
     self.series = series
     self.songs = songs
 
-  def addMovie(movie):
+  def addMovie(self, movie):
     self.movies.append(movie)
 
-  def addSerie(serie):
+  def addSerie(self, serie):
     self.series.append(serie)
 
-  def addSong(song):
+  def addSong(self, song):
     self.songs.append(song)
   
-  def removeMovie(title):
-    for movie in movies:
+  def removeMovie(self, title):
+    for movie in self.movies:
       if movie.title == title:
         self.movies.remove(movie)
 
-  def removeSerie(title):
-    for serie in series:
+  def removeSerie(self, title):
+    for serie in self.series:
       if serie.title == title:
         self.series.remove(serie)
 
-  def removeSong(title):
-    for song in songs:
+  def removeSong(self, title):
+    for song in self.songs:
       if song.title == title:
         self.songs.remove(song)
 
-  def getMovies():
+  def getMovies(self):
     return self.movies
 
-  def getSeries():
+  def getSeries(self):
     return self.series
 
-  def getSongs():
+  def getSongs(self):
     return self.songs
 
-  def doesMovieExist(title):
-    for movie in movies:
+  def doesMovieExist(self, title):
+    for movie in self.movies:
       if movie.title == title:
         return True
     return False
 
-  def doesSerieExist(title):
-    for serie in series:
+  def doesSerieExist(self, title):
+    for serie in self.series:
       if serie.title == title:
         return True
     return False
 
-  def doesSongExist(title):
-    for song in songs:
+  def doesSongExist(self, title):
+    for song in self.songs:
       if song.title == title:
         return True
     return False

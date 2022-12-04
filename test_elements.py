@@ -3,7 +3,6 @@ import unittest
 from Movie import *
 from Serie import *
 from Song import *
-from Library import *
 
 class TestStringMethods(unittest.TestCase):
   def test_new_movie(self):
@@ -47,3 +46,4 @@ class TestStringMethods(unittest.TestCase):
 
 if __name__ == '__main__':
   unittest.main()
+  
