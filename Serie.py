@@ -1,10 +1,10 @@
 class Serie:
-  def __init__(title, creator, year):
+  def __init__(self, title, creator, year):
     self.title = title
     self.creator = creator
     self.year = year
   
-  def update(title, creator, year):
+  def update(self, title, creator, year):
     self.title = title
     self.creator = creator
     self.year = year
