@@ -7,23 +7,9 @@ class TestStringMethods(unittest.TestCase):
     self.library = Library([],[],[])
 
   def test_new_library(self):
-    self.assertEqual(len(self.library.series), 0)
+    self.assertEqual(len(self.library.movies), 0)
     self.assertEqual(len(self.library.series), 0)
     self.assertEqual(len(self.library.songs), 0)
-
-  def test_add_remove(self):
-    movie = Movie('No Country For Old Men', 'Ethan Coen', 2007)
-    self.library.addMovie(movie)
-    serie = Serie('Breaking Bad', 'Vince Gilligan', 2008)
-    self.library.addSerie(serie)
-    song = Song('Lose Yourself', 'Eminem', 2002)
-    self.library.addSong(song)
-    self.library.removeSong('Lose Yourself')
-    movie2 = Movie('The Departed', 'Martin Scorsese', 2006)
-    self.library.addMovie(movie2)
-    self.assertEqual(self.library.movies, [movie, movie2])
-    self.assertEqual(self.library.series, [serie])
-    self.assertEqual(self.library.songs, [])
 
   # ----------------- MOVIE --------------------
 
@@ -52,7 +38,7 @@ class TestStringMethods(unittest.TestCase):
   def test_movie_not_exists(self):
     self.assertFalse(self.library.doesMovieExist('No Country For Old Men'))
 
-  # ----------------- SERIE --------------------Breaking
+  # ----------------- SERIE --------------------
 
   def test_add_serie(self):
     serie = Serie('Breaking Bad', 'Vince Gilligan', 2008)
@@ -105,6 +91,36 @@ class TestStringMethods(unittest.TestCase):
 
   def test_song_not_exists(self):
     self.assertFalse(self.library.doesSongExist('Lose Yourself'))
+
+  # ----------------- INTEGRATION --------------------
+
+  def test_add_remove(self):
+    movie = Movie('No Country For Old Men', 'Ethan Coen', 2007)
+    self.library.addMovie(movie)
+    serie = Serie('Breaking Bad', 'Vince Gilligan', 2008)
+    self.library.addSerie(serie)
+    song = Song('Lose Yourself', 'Eminem', 2002)
+    self.library.addSong(song)
+    self.library.removeSong('Lose Yourself')
+    movie2 = Movie('The Departed', 'Martin Scorsese', 2006)
+    self.library.addMovie(movie2)
+    self.assertEqual(self.library.getMovies(), [movie, movie2])
+    self.assertEqual(self.library.getSeries(), [serie])
+    self.assertEqual(self.library.getSongs(), [])
+
+  def test_remove_all(self):
+    movie = Movie('No Country For Old Men', 'Ethan Coen', 2007)
+    self.library.addMovie(movie)
+    serie = Serie('Breaking Bad', 'Vince Gilligan', 2008)
+    self.library.addSerie(serie)
+    song = Song('Lose Yourself', 'Eminem', 2002)
+    self.library.addSong(song)
+    self.library.removeMovie('No Country For Old Men')
+    self.library.removeSerie('Breaking Bad')
+    self.library.removeSong('Lose Yourself')
+    self.assertEqual(len(self.library.getMovies()), 0)
+    self.assertEqual(len(self.library.getSeries()), 0)
+    self.assertEqual(len(self.library.getSongs()), 0)
 
 if __name__ == '__main__':
   unittest.main()
