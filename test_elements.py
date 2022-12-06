@@ -16,7 +16,7 @@ class TestStringMethods(unittest.TestCase):
     movie.update('No Country For Old Men', 'Ethan Coen', 2007)
     self.assertEqual(movie.title, 'No Country For Old Men')
     self.assertEqual(movie.director, 'Ethan Coen')
-    self.assertEqual(movie.year, 2007)
+    self.assertEqual(movie.year, 2009)
 
   def test_new_series(self):
     serie = Serie('Breaking Bad', 'Vince Gilligan', 2008)
