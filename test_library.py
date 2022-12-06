@@ -23,7 +23,7 @@ class TestStringMethods(unittest.TestCase):
     self.library.addMovie(movie)
     self.assertEqual(len(self.library.movies), 1)
     self.library.removeMovie('No Country For Old Men')
-    self.assertEqual(len(self.library.movies), 0)
+    self.assertEqual(len(self.library.movies), 10)
 
   def test_get_movies(self):
     movie = Movie('No Country For Old Men', 'Ethan Coen', 2007)
